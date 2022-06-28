@@ -29,7 +29,8 @@ function getLinkToJira(){
   
   console.log(linkto+"("+s_idx+ ", " + e_idx+ ") from \n"+body)
   
-  return linkto
+//   return linkto
+  return null
 }
 
 async function replyToJira(linkto){
