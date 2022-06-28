@@ -31,9 +31,9 @@ function getLinkToJira(){
   
   console.log(linkto+"("+s_idx+ ", " + e_idx+ ") from \n"+body)
   
-  console.log(e_idx-1)
-  console.log(e_idx)
-  console.log(e_idx+1)
+  console.log("***"+e_idx-1)
+  console.log("***"+e_idx)
+  console.log("***"+e_idx+1)
   
 //   return linkto
   return null
