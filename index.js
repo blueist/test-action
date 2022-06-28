@@ -3,8 +3,8 @@ const fs = require('fs').promises;
 const path = require('path');
 const github = require('@actions/github');
 
-//const targetProject = "ZF" 
-const targetProject = "ZREQ"
+const targetProject = "ZF" 
+//const targetProject = "ZREQ"
 
 function getLinkToJira(){
   const context = github.context;
@@ -22,6 +22,7 @@ function getLinkToJira(){
   }
   e_idx = body.indexOf("\n", s_idx)
   if (e_idx < 0 ) {
+      
       core.setFailed('invalid link(to jira) found.');
       return;
   }
