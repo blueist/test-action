@@ -21,6 +21,7 @@ function getLinkToJira(){
       return;
   }
   e_idx = body.indexOf("\n", s_idx)
+  
   if (e_idx < 0 ) {
       
       core.setFailed('invalid link(to jira) found.');
@@ -29,6 +30,10 @@ function getLinkToJira(){
   linkto = body.substring(s_idx, e_idx-1)
   
   console.log(linkto+"("+s_idx+ ", " + e_idx+ ") from \n"+body)
+  
+  console.log(e_idx-1)
+  console.log(e_idx)
+  console.log(e_idx+1)
   
 //   return linkto
   return null
