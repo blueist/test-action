@@ -27,7 +27,20 @@ function getLinkToJira(){
       core.setFailed('invalid link(to jira) found.');
       return;
   }
-  e_idx = e_idx2
+  e_idx = e_idx1
+  if (e_idx1 < 0) {
+    e_idx = e_idx2
+  } else if (e_idx2 < 0) {
+    e_idx = e_idx1
+  } else {
+    if (e_idx1 < e_idx2) {
+      e_idx = e_idx1 
+    } else {
+      e_idx = e_idx2 
+    }
+  }
+  
+  
   if (e_idx1 < e_idx2) {
     e_idx = e_idx1 
   }
