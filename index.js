@@ -20,14 +20,18 @@ function getLinkToJira(){
       core.setFailed('No link(to jira) found.');
       return;
   }
-  e_idx = body.indexOf("\n", s_idx)
+  e_idx1 = body.indexOf("\n", s_idx)
+  e_idx2 = body.indexOf("\r", s_idx)
   
-  if (e_idx < 0 ) {
-      
+  if (e_idx1 < 0 && e_idx2 < 0) {
       core.setFailed('invalid link(to jira) found.');
       return;
   }
-  linkto = body.substring(s_idx, e_idx-1)
+  e_idx = e_idx2
+  if (e_idx1 < e_idx2) {
+    e_idx = e_idx1 
+  }
+  linkto = body.substring(s_idx, e_idx)
   
   console.log(linkto+"("+s_idx+ ", " + e_idx+ ") from \n"+body)
   
