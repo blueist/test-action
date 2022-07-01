@@ -60,19 +60,23 @@ async function replyToJira(linkto){
   const fetchP = import('node-fetch').then(mod => mod.default)
   const fetch = (...args) => fetchP.then(fn => fn(...args))
 
+  
+  url = 'https://my-atlassian-site-009117.atlassian.net/rest/api/3/issue/'+linkto+'/comment'
+  auth1 = core.getInput('input')
+  
+  msg = core.getInput('output')
+  
   const bodyData = `{
     "body": {
       "type": "doc",
       "version": 1,
       "content": [
         { "type": "paragraph",
-          "content": [ { "text": "issue closed", "type": "text"} ]}
+          "content": [ { "text": ${msg}, "type": "text"} ]}
       ]
     }
   }`;
 
-  url = 'https://my-atlassian-site-009117.atlassian.net/rest/api/3/issue/'+linkto+'/comment'
-  auth1 = core.getInput('input')
   
   console.log("url : "+url+ ", " + "auth : " +auth1)
   fetch(url, {
