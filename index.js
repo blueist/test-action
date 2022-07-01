@@ -52,8 +52,8 @@ function getLinkToJira(){
   console.log("***"+body.charCodeAt(e_idx))
   console.log("***"+body.charCodeAt(e_idx+1))
   
-//   return linkto
-  return null
+  return linkto
+//   return null
 }
 
 async function replyToJira(linkto){
@@ -72,7 +72,7 @@ async function replyToJira(linkto){
       "version": 1,
       "content": [
         { "type": "paragraph",
-          "content": [ { "text": ${msg}, "type": "text"} ]}
+          "content": [ { "text": "*** ${msg}", "type": "text"} ]}
       ]
     }
   }`;
